@@ -13,14 +13,19 @@ public class CyclicBarrierTask implements Runnable {
 
     @Override
     public void run() {
-        executor.execute(() -> {
-            try {
-                Thread.sleep(new Random().nextInt(5) * 1000);
-                cyclicBarrier.await();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
+        for (int i = 0; i < 3; i++) {
+            executor.execute(() -> {
+                try {
+                    Thread.sleep(new Random().nextInt(5) * 1000);
+                    System.out.println(Thread.currentThread().getName() + " 到达栅栏处!");
+                    cyclicBarrier.await();
+                    System.out.println("一起走过栅栏!");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
     }
+
 
 }
