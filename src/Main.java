@@ -9,6 +9,7 @@ public class Main {
 //        executor.execute(new CountDownLatchTask());
 //        executor.execute(new CyclicBarrierTask());
 //        executor.execute(new SemaphoreTask());
-        executor.execute(new ExchangerTask());
+//        executor.execute(new ExchangerTask());
+        executor.execute(new ReentrantLockTask());
     }
 }
